@@ -18,9 +18,10 @@ companies = [
 job_role = ""
 job_type_optns = ["Full Time", "Part Time", "Temporary", "Graduate", "Placement", "Entry Level"]
 job_type = ""
+count = 0
+limiter = 20
 
-# TODO: Add limiter
-def main(companies, job_role, job_type_optns, job_type):
+def main(companies, job_role, job_type_optns, job_type, count, limiter):
     for a in range(len(job_type_optns)):
         print(str(a+1) + ".   " + job_type_optns[a])
     job_type = int(input("\nPlease enter the corresponding number to your desired Job Type: ")) -1
@@ -32,6 +33,11 @@ def main(companies, job_role, job_type_optns, job_type):
     job_type = job_type_optns[job_type]
     job_role = input("\nWhat job role are you searching for? ")
     for i in range(len(companies)):
-        webbrowser.open_new_tab("https://www.google.com/search?q="+job_type + " " +job_role+ " " +companies[i])
+        count += 1
+        print(count)
+        if count == limiter:
+            input("\nPress Ctrl C to cancel or enter to load the next 20: ")
+            limiter += 20
+        webbrowser.open_new_tab("https://www.google.com/search?q=" + job_type + " " + job_role + " " + companies[i])
 
-main(companies, job_role, job_type_optns, job_type)
+main(companies, job_role, job_type_optns, job_type, count, limiter)
