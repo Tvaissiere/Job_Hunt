@@ -1,1 +1,3 @@
-# Should only be this file
+import webbrowser
+
+webbrowser.open("https://google.com")
