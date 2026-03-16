@@ -1,0 +1,1 @@
+This was just a basic script I made to make Job Searching a little quicker, someone else may find helpful, please feel free to do whatever you want with it.
